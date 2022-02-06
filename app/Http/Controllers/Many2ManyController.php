@@ -18,26 +18,33 @@ class Many2ManyController extends Controller
     public function many()
     {
         #### The inserts into the pivot table [post_tag] post&tag ID
-        // $tag = Tag::first();
-         //$post = Post::first();
+         //$tag = Tag::first();
+         $post = Post::first();
 
-        // $post->tags()->attach($tag);
+         //dd($post->tags->first()->pivot->status);
+
+         $post->tags()->attach([
+             1 => [
+                 'status' => 'approved'
+             ]
+         ]);
+         //$post->tags()->attach($tag);
          //$post->tags()->attach([2,4,1,3]);
          //$post->tags()->detach([4]);
 
 
-        // $posts = Post::with('user', 'tags')->get();
-        // return view('many2many',['posts' => $posts]);
+        $posts = Post::with('user', 'tags')->get();
+        return view('many2many',['posts' => $posts]);
 
-        $tags = Tag::with('posts')->get();
-        return view('many2many',['tags' => $tags]);
+        // $tags = Tag::with('posts')->get();
+        // return view('many2many',['tags' => $tags]);
     }
 
     public function create() 
     {
-        
+
         Tag::create([
-            'name' => 'ruby'
+            'name' => 'laravel'
         ]);
 
 

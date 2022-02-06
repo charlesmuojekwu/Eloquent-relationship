@@ -22,7 +22,10 @@ class Post extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class)
+            ->using(PostTag::class)
+            ->withTimestamps()
+            ->withPivot('status');
         //return $this->belongsToMany(Tag::class,'post_tag');  ## pivot table should be named in alphabetical order of the 2 tables
     }
 }

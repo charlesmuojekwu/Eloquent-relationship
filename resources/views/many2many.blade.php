@@ -16,28 +16,28 @@
             <div class="col-6 card mt-5">
 
 
-                {{-- @foreach ( $posts as $post )
+                @foreach ( $posts as $post )
 
                     <h3 > {{ $post->id}} || {{ $post->title}} </h3>
             
                         @foreach ($post->tags as $tag )
-                            <p > {{ $tag->name}} || </p>
+                            <p > {{ $tag->name}} || {{( $tag->pivot->created_at )}}</p>
                         @endforeach
 
                         <p>{{ $post->user->name }}</p>
 
-                @endforeach --}}
+                @endforeach
 
 
-                @foreach ($tags as $tag )
+                {{-- @foreach ($tags as $tag )
 
                     <h1>{{ $tag->name }}</h1>
 
                     @foreach ($tag->posts as $post)
-                        <p>{{ $post->title }}</p>
+                        <p>{{ $post->title }} </p>
                     @endforeach
 
-                @endforeach
+                @endforeach --}}
             </div>
             
             @else
