@@ -53,9 +53,10 @@ class User extends Authenticatable
     }
 
 
-    public function project()
+    public function projects()
     {
-        return $this->belongsTo(Project::class);
+        //return $this->belongsTo(Project::class);
+        return $this->belongsToMany(Project::class); // using pivot
     }
 
     public function tasks()
