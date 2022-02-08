@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'project_id'
     ];
 
     /**
@@ -51,6 +52,16 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 
 
    

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HasManyThru;
 use App\Http\Controllers\Many2ManyController;
 use App\Http\Controllers\One2ManyController;
 use App\Http\Controllers\One2OneController;
@@ -38,6 +39,10 @@ Route::get('/manycreate', [One2ManyController::class, 'create']);
 Route::get('/all', [Many2ManyController::class, 'many']);
 Route::get('/get', [Many2ManyController::class, 'postMany']);
 Route::get('/many', [Many2ManyController::class, 'create']);
+
+
+## has-one-through &has-many
+Route::get('projects', [HasManyThru::class, 'index']);
 
 
 Route::get('/view', function() {
