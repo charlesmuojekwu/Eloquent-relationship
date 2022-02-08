@@ -43,6 +43,7 @@ Route::get('/many', [Many2ManyController::class, 'create']);
 
 ## has-one-through &has-many
 Route::get('projects', [HasManyThru::class, 'index']);
+Route::get('project-create', [HasManyThru::class, 'create']);
 
 
 Route::get('/view', function() {
