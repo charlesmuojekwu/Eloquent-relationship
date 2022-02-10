@@ -9,6 +9,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     protected $fillable = [
         'title','user_id'
     ];
@@ -27,5 +29,18 @@ class Post extends Model
             ->withTimestamps()
             ->withPivot('status');
         //return $this->belongsToMany(Tag::class,'post_tag');  ## pivot table should be named in alphabetical order of the 2 tables
+    }
+
+    //to many
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    // to noe
+    public function comment()
+    {
+        return $this->morphOne(Comment::class, 'commentable')
+            ->latest();
     }
 }

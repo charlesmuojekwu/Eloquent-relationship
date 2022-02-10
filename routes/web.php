@@ -4,6 +4,7 @@ use App\Http\Controllers\HasManyThru;
 use App\Http\Controllers\Many2ManyController;
 use App\Http\Controllers\One2ManyController;
 use App\Http\Controllers\One2OneController;
+use App\Http\Controllers\Polymorphic;
 use Illuminate\Support\Facades\Route;
 use App\Models\Address;
 use App\Models\User;
@@ -46,6 +47,11 @@ Route::get('projects', [HasManyThru::class, 'index']);
 Route::get('index-many', [HasManyThru::class, 'indexMany']);
 Route::get('project-create', [HasManyThru::class, 'create']);
 Route::get('project-many', [HasManyThru::class, 'm2mPivot']);
+
+
+## Polymorphic relation
+Route::get('morph-create', [Polymorphic::class, 'create']);
+Route::get('morph-show', [Polymorphic::class, 'show']);
 
 
 Route::get('/view', function() {
