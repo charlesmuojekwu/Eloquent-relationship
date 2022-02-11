@@ -43,4 +43,10 @@ class Post extends Model
         return $this->morphOne(Comment::class, 'commentable')
             ->latest();
     }
+
+    // taggable
+    public function taggable()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 }

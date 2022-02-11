@@ -11,8 +11,19 @@ class Tag extends Model
 
     protected $fillable = ['post_id','name'];
 
+    /// many to many
     public function posts()
     {
         return $this->belongsToMany(Post::class);
+    }
+
+    public function postTags()
+    {
+        return $this->morphedByMany(Post::class, 'taggable');
+    }
+
+    public function videoTags()
+    {
+        return $this->morphedByMany(Video::class, 'taggable');
     }
 }

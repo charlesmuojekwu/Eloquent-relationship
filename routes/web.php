@@ -52,9 +52,12 @@ Route::get('project-many', [HasManyThru::class, 'm2mPivot']);
 ## Polymorphic relation
 Route::get('morph-create', [Polymorphic::class, 'create']);
 Route::get('morph-show', [Polymorphic::class, 'show']);
+Route::get('morph-tag', [Polymorphic::class, 'taggable']);
+Route::get('morph-video', [Polymorphic::class, 'video']);
+Route::get('post-video', [Polymorphic::class, 'tags']);
 
 
 Route::get('/view', function() {
-
+    
 });
 
